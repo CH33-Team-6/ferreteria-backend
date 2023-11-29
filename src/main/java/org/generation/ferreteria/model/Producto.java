@@ -1,12 +1,14 @@
 package org.generation.ferreteria.model;
 
 public class Producto {
-private Long id;
-private String nombre;
-private String descripcion;
-private String imagen;
-private Double precio;
-private static long total=0;
+	private Long id;
+	private String nombre;
+	private String descripcion;
+	private String imagen;
+	private Double precio;
+	
+	private static long total=0;
+	
 public Producto(String nombre, String descripcion, String imagen, Double precio) {
 	this.nombre = nombre;
 	this.descripcion = descripcion;
@@ -16,8 +18,8 @@ public Producto(String nombre, String descripcion, String imagen, Double precio)
 	  this.id = total;
 }//Constructor
 public Producto() {
-	Producto.total++;
-	  this.id = total;
+		Producto.total++;
+		  this.id = total;
 }//Constructor
 public String getNombre() {
 	return nombre;

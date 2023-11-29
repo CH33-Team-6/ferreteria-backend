@@ -47,5 +47,5 @@ public Producto updateProducto(@PathVariable("prodId") long id,
   @RequestParam(required=false) String imagen,
   @RequestParam(required=false) Double precio) {
  return productoService.updateProducto(id,nombre, descripcion, imagen, precio);
-}
-}
+}//requestparam
+}//class productorController
