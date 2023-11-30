@@ -36,12 +36,12 @@ public Categoria getCategoria(@PathVariable("catId") long id) {
 public Categoria deleteCategoria(@PathVariable("catId") long id) {
 	return categoriaService.deleteCategoria(id);
 }//delete
-@PostMapping(path="{catId}")
+@PostMapping
 public Categoria addCategoria(@RequestBody Categoria categoria) {
 	return categoriaService.addCategoria(categoria);
 }//addProduct
 @PutMapping(path="{catId}")
-public Categoria updateCategoria(@PathVariable("prodId") long id,
+public Categoria updateCategoria(@PathVariable("catId") long id,
 		@RequestParam(required=false) String categoria) {
 	return categoriaService.updateCategoria(id, categoria);
 }
