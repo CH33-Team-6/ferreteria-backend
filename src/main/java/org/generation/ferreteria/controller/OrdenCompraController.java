@@ -1,6 +1,6 @@
 package org.generation.ferreteria.controller;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import org.generation.ferreteria.model.OrdenCompra;
 import org.generation.ferreteria.service.OrdenCompraService;
@@ -24,7 +24,7 @@ public class OrdenCompraController {
 		this.ordenCompraService = ordenCompraService;
 	}//constructor
 	@GetMapping
-	public ArrayList<OrdenCompra> getAllOrdenCompra() {
+	public List<OrdenCompra> getAllOrdenCompra() {
         return ordenCompraService.getAllOrdenCompra();
     }
 	@GetMapping(path="{ordId}")

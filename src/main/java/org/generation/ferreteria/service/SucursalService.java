@@ -1,62 +1,63 @@
 package org.generation.ferreteria.service;
 
-import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
 
 import org.generation.ferreteria.model.Sucursal;
+import org.generation.ferreteria.repository.SucursalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class SucursalService {
-	public final ArrayList<Sucursal> lista = new ArrayList<Sucursal>();
+	private final SucursalRepository sucursalRepository; 
 	@Autowired
-	public SucursalService() {
-		lista.add(new Sucursal("San Antonio", "San Antonio 503, Juarez, Nuevo Leon", "8130391674"));
-		lista.add(new Sucursal("Higeras", "Higueras 100, Residencial Los Huertos, 67265 Cdad. Benito Juárez, Nuevo Leon", "8115565307"));
+	public SucursalService(SucursalRepository sucursalRepository) {
+		this.sucursalRepository=sucursalRepository;
 	}//constructor
-	public ArrayList<Sucursal> getAllSucursales() {
-		// TODO Auto-generated method stub
-		return lista;
-	}
+	
+	public List <Sucursal> getAllSucursales() {
+		return sucursalRepository.findAll();
+	}//getAll
+	
 	public Sucursal getSucursal(long id) {
-		Sucursal suc = null;
-		for (Sucursal sucursal : lista) {
-			if(id == sucursal.getId()) {
-				suc=sucursal;
-				break;
-			}//if
-		}//foreach
-		return suc;
-	}//getONEservice
+		return sucursalRepository.findById(id).orElseThrow(
+				()->new IllegalArgumentException("La sucursal con el id ["
+						+ "] no existe"));
+	}//getSucursal
+	
 	public Sucursal deleteSucursal(long id) {
 		Sucursal suc = null;
-		for (Sucursal sucursal : lista) {
-			if(id == sucursal.getId()) {
-				suc=sucursal;
-				lista.remove(sucursal);
-				break;
+			if(sucursalRepository.existsById(id)) {
+				suc=sucursalRepository.findById(id).get();
+				sucursalRepository.deleteById(id);;
 			}//if
-		}//foreach
 		return suc;
-	}
+	}//deleteSucursal
+	
 	public Sucursal addSucursal(Sucursal sucursal) {
-		lista.add(sucursal);
-		return sucursal;
-	}
+		Optional<Sucursal> tmpSuc=sucursalRepository.findBynombreSucursal(sucursal.getNombreSucursal());
+		if (tmpSuc.isEmpty()) {
+			return sucursalRepository.save(sucursal);
+		}//if
+		else {
+			System.out.println("Ya existe la sucursal con el nombre ["
+					+ sucursal.getNombreSucursal()+"]");
+			return null;
+		}//else
+	}//addSucursal
 	public Sucursal updateSucursal(long id, String nombreSucursal, String ubicacion, String telefono) {
 		Sucursal suc = null;
-		for (Sucursal sucursal : lista) {
-			if(id == sucursal.getId()) {
-				if(nombreSucursal != null) sucursal.setNombreSucursal(nombreSucursal);
-				if(ubicacion != null) sucursal.setUbicacion(ubicacion);
-				if(telefono != null) sucursal.setTelefono(telefono);
-				suc=sucursal;
-				break;
+			if(sucursalRepository.existsById(id)) {
+				suc=sucursalRepository.findById(id).get();
+				if(nombreSucursal != null) suc.setNombreSucursal(nombreSucursal);
+				if(ubicacion != null) suc.setUbicacion(ubicacion);
+				if(telefono != null) suc.setTelefono(telefono);
+				sucursalRepository.save(suc);
 			}//if
-		}//foreach
 		return suc;
 	}//updateSucursal
-	
 	
 	
 }

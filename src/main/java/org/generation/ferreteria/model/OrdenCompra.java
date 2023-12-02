@@ -1,25 +1,37 @@
 package org.generation.ferreteria.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name= "ordencompra")
 public class OrdenCompra {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name= "id", unique=true, nullable=false)
 	private Long id;
+	@Column(nullable=false)
     private String fechaOrden;
+	@Column(nullable=false)
     private String status;
     private Double precioTotal;
     private Integer cantidadProductos;
 
-    private static long total=0;
+
 
 	public OrdenCompra(String fechaOrden, String status, Double precioTotal, Integer cantidadProductos) {
 		this.fechaOrden = fechaOrden;
 		this.status = status;
 		this.precioTotal = precioTotal;
 		this.cantidadProductos = cantidadProductos;
-		OrdenCompra.total++;
-		this.id = total;
+		
 	}//constructor
 	public OrdenCompra() {
-		OrdenCompra.total++;
-		this.id = total;
+		
 	}//constructor
 	public String getFechaOrden() {
 		return fechaOrden;

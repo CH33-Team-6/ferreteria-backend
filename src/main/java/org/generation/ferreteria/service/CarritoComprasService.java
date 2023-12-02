@@ -1,60 +1,58 @@
 package org.generation.ferreteria.service;
 
-import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 import org.generation.ferreteria.model.CarritoCompras;
+import org.generation.ferreteria.repository.CarritoComprasRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 @Service
 public class CarritoComprasService {
-	public final ArrayList<CarritoCompras> lista = new ArrayList<CarritoCompras>();
+	private final CarritoComprasRepository carritoComprasRepository;
 	@Autowired
-	public CarritoComprasService() {
-		lista.add(new CarritoCompras("2023-08-05", 1, 265.00));
-		lista.add(new CarritoCompras("2023-09-25", 3, 952.00));
-		lista.add(new CarritoCompras("2023-10-57", 2, 523.00));
+	public CarritoComprasService(CarritoComprasRepository carritoComprasRepository) {
+		this.carritoComprasRepository=carritoComprasRepository;
 	}//constructor
-	public ArrayList<CarritoCompras> getAllCarritoCompras() {
-		return lista;
+	public List<CarritoCompras> getAllCarritoCompras() {
+		return carritoComprasRepository.findAll();
 	}//metodo getAll
 	public CarritoCompras getCarritoCompras(long id) {
-		CarritoCompras car = null;
-		for (CarritoCompras carritoCompras : lista) {
-			if(id == carritoCompras.getId()) {
-				car=carritoCompras;
-				break;
-			}//if
-		}//foreach
-		return car;
+		return carritoComprasRepository.findById(id).orElseThrow(
+				()-> new IllegalArgumentException("El carrito de compras con el id ["
+						+ "] no existe"));
 	}//getCarritoCompras
+	
 	public CarritoCompras deleteCarritoCompras(long id) {
 		CarritoCompras car = null;
-		for (CarritoCompras carritoCompras : lista) {
-			if(id == carritoCompras.getId()) {
-				car=carritoCompras;
-				lista.remove(carritoCompras);
-				break;
-			}//if
-		}//foreach
-		return car;
+		if(carritoComprasRepository.existsById(id)) {
+			car=carritoComprasRepository.findById(id).get();
+			carritoComprasRepository.deleteById(id);
+		}//if
+	return car;
 	}//deleteCarritoCompras
 	public CarritoCompras addCarritoCompras(CarritoCompras carritoCompras) {
-		lista.add(carritoCompras);
-		return carritoCompras;
+		Optional<CarritoCompras> tmpCar= carritoComprasRepository.findByfechaCreacion(carritoCompras.getFechaCreacion());
+		if (tmpCar.isEmpty()) {
+			return carritoComprasRepository.save(carritoCompras);
+		}//if
+		else {
+			System.out.println("Ya existe el carrito de compras con la fechaCreacion ["
+					+ carritoCompras.getFechaCreacion() +"]");
+			return null;
+		}//else
 	}//addCarrito
 	public CarritoCompras updateCarritoCompras(long id, String fechaCreacion, Integer cantidadProducto,
 			Double precioTotal) {
 		CarritoCompras car = null;
-		for (CarritoCompras carritoCompras : lista) {
-			if(id == carritoCompras.getId()) {
-				if(fechaCreacion != null) carritoCompras.setFechaCreacion(fechaCreacion);
-				if(cantidadProducto != null) carritoCompras.setCantidadProducto(cantidadProducto);
-				if(precioTotal != null) carritoCompras.setPrecioTotal(precioTotal);
-				car=carritoCompras;
-				break;
+			if(carritoComprasRepository.existsById(id)) {
+				car=carritoComprasRepository.findById(id).get();
+				if(fechaCreacion != null) car.setFechaCreacion(fechaCreacion);
+				if(cantidadProducto != null) car.setCantidadProducto(cantidadProducto);
+				if(precioTotal != null) car.setPrecioTotal(precioTotal);
+				carritoComprasRepository.save(car);
 			}//if
-		}//foreach
 		return car;
-	}
+	}//updateCarritoCompras
 	
 }

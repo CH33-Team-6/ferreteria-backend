@@ -1,6 +1,6 @@
 package org.generation.ferreteria.controller;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import org.generation.ferreteria.model.Usuario;
 import org.generation.ferreteria.service.UsuarioService;
@@ -25,7 +25,7 @@ public class UsuarioController {
 		
 	}//constructor
 	@GetMapping
-	public ArrayList<Usuario> getAllUsuarios(){
+	public List<Usuario> getAllUsuarios(){
 		return usuarioService.getAllUsuarios();
 	}//getAllUsuarios
 	@GetMapping (path="{usuId}") // http://localhost:8080/api/usuarios/1

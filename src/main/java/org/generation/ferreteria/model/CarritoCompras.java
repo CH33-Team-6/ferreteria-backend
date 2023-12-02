@@ -1,23 +1,34 @@
 package org.generation.ferreteria.model;
-	
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="CarritoCompras")
 public class CarritoCompras {
+@Id
+@GeneratedValue(strategy=GenerationType.IDENTITY)
+@Column(name="id", unique=true, nullable=false)
 	private Long id;
+@Column(nullable=false)
 	private String fechaCreacion;
+@Column(nullable=false)
 	private Integer cantidadProducto;
+@Column(nullable=false)
 	private Double precioTotal;
 	
-	private static long total=0;
-
 	public CarritoCompras(String fechaCreacion, int cantidadProducto, double precioTotal) {
 		this.fechaCreacion = fechaCreacion;
 		this.cantidadProducto = cantidadProducto;
 		this.precioTotal = precioTotal;
-		CarritoCompras.total++;
-		this.id = total;
+		
 	}//constructor
 	public CarritoCompras() {
-		CarritoCompras.total++;
-		this.id = total;
+		
 	}//constructor
 	public String getFechaCreacion() {
 		return fechaCreacion;

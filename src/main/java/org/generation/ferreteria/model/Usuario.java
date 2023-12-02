@@ -1,14 +1,26 @@
 package org.generation.ferreteria.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="usuarios")
 public class Usuario {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="id", unique=true, nullable=false)
 	private Long id;
+	@Column(nullable=false)
 	private String nombre;
+	@Column(nullable=false)
 	private String numero;
+	@Column(nullable=false)
 	private String correo;
 	 
-	 
-	 private static long total=0;
-
 
 	public Usuario(String nombre, String numero, String correo) {
 		this.nombre = nombre;
@@ -16,8 +28,7 @@ public class Usuario {
 		this.correo = correo;
 	}//constructor
 	public Usuario() {
-		Usuario.total++;
-		this.id = total;
+		
 	}//constructor
 	public String getNombre() {
 		return nombre;

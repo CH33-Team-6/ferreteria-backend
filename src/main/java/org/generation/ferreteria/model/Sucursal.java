@@ -1,27 +1,36 @@
 package org.generation.ferreteria.model;
 
-public class Sucursal {
-	private Long id;
-	private String nombreSucursal;
-	private String ubicacion;
-	private String telefono;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-	
-	private static long total=0;
+@Entity
+@Table(name="sucursales")
+public class Sucursal {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="id", unique=true, nullable=false)
+	private Long id;
+	@Column(nullable=false)
+	private String nombreSucursal;
+	@Column(nullable=false)
+	private String ubicacion;
+	@Column(nullable=false)
+	private String telefono;
 
 
 	public Sucursal(String nombreSucursal, String ubicacion, String telefono) {
 		this.nombreSucursal = nombreSucursal;
 		this.ubicacion = ubicacion;
 		this.telefono = telefono;
-		Sucursal.total++;
-		this.id = total;
-	}
+	}//constructor
 
 	public Sucursal() {
-		Sucursal.total++;
-		this.id = total;
-	}
+	
+	}//constructor
 
 	public String getNombreSucursal() {
 		return nombreSucursal;

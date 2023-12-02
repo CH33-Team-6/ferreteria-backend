@@ -1,6 +1,6 @@
 package org.generation.ferreteria.controller;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import org.generation.ferreteria.model.Categoria;
 import org.generation.ferreteria.service.CategoriaService;
@@ -25,7 +25,7 @@ public class CategoriaController {
 		this.categoriaService = categoriaService;
 	}//constructor
 @GetMapping
-public ArrayList<Categoria> getAllCategorias(){
+public List<Categoria> getAllCategorias(){
  return categoriaService.getAllCategorias();
 }//getMapping 
 @GetMapping(path="{catId}")
@@ -45,4 +45,4 @@ public Categoria updateCategoria(@PathVariable("catId") long id,
 		@RequestParam(required=false) String categoria) {
 	return categoriaService.updateCategoria(id, categoria);
 }
-}
+}//categoriaController

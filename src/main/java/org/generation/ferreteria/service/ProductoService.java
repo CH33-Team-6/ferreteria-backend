@@ -1,68 +1,61 @@
 package org.generation.ferreteria.service;
 
-import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 import org.generation.ferreteria.model.Producto;
+import org.generation.ferreteria.repository.ProductoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 @Service
 public class ProductoService {
-	public final ArrayList<Producto> lista = new ArrayList<Producto>();
+	public final ProductoRepository productoRepository;
+	
 	@Autowired
-	public ProductoService() {
-			  lista.add(new Producto("Regleta Calibradora Truper",
-			    "Regleta medidora de tuercas y tornillos, 22 cm, Truper ",
-			     "Productos\1226REGLETATRUPER.jpg", 50.0));
-			  lista.add(new Producto("Tijera forjada para poda ",
-			    "Tijera forjada para poda 8 pulgadas para jardinería Truper", "Fotos Productos\024TIJERATRUPER.jpg", 165.0));
-			  lista.add(new Producto("Nava Retráctil Truper",
-					    "Cutter 18 mm profesional con alma metálica y grip, Truper",
-					    "Productos/025Navaja", 81.00));
-			  lista.add(new Producto("Separadores de losetas Truper",
-					    " Bolsa con 75 separadores de 8 mm de losetas, Truper",
-					    "Productos/072SeparadoresLoseta", 50.00));
+	public ProductoService(ProductoRepository productoRepository) {
+		this.productoRepository= productoRepository;
 	}//constructor
-	public ArrayList<Producto> getAllProductos() {
-		return lista;
+	public List<Producto> getAllProductos() {
+		return productoRepository.findAll();
 	}
 	public Producto getProducto(long id) {
-		Producto prod = null;
-		  for (Producto producto : lista) {
-		   if(id == producto.getId()) {
-		    prod = producto;
-		    break;
-		   }//if
-		  }//foreach
-		  return prod;
-	}
+		  return productoRepository.findById(id).orElseThrow(
+				  ()->new IllegalArgumentException("El producto con el Id ["
+				  		+ "]no existe"));
+	}//get producto
+	
 	public Producto deleteProducto(long id) {
-		  Producto prod = null;
-		  for (Producto producto : lista) {
-		   if(id == producto.getId()) {
-		    prod = producto;
-		    lista.remove(producto);
-		    break;
-		   }//if
-		  }//foreach
+		  Producto prod=null;
+		  if (productoRepository.existsById(id)){
+			  prod= productoRepository.findById(id).get();
+			  productoRepository.deleteById(id);//vemos si existe para buscarlo
+		  }//if
 		  return prod;
-		 }
+		 }//detele
+	
 		 public Producto addProducto(Producto producto) {
-		  lista.add(producto);
-		  return producto;
+		 Optional<Producto> tmpProd=productoRepository.findByNombre(producto.getNombre());
+		 if (tmpProd.isEmpty()) {
+			 return productoRepository.save(producto);
+		 }//if
+		 else {
+			 System.out.println("Ya existe el producto con el nombre ["
+			 		+ producto.getNombre() + "]");
+			 return null;
+		 }//else
 		 }//addProducto
+		 
 		 public Producto updateProducto(long id, String nombre, String descripcion, String imagen, Double precio) {
 		  Producto prod = null;
-		  for (Producto producto : lista) {
-		   if(id == producto.getId()) {
+		   if(productoRepository.existsById(id)) {
 		    //validar cual tiene valor
-		    if(nombre != null) producto.setNombre(nombre);
-		    if(descripcion != null) producto.setDescripcion(descripcion);
-		    if(imagen != null) producto.setImagen(imagen);
-		    if(precio != null) producto.setPrecio(precio);
-		    prod=producto;
-		    break;
+			prod=productoRepository.findById(id).get();
+		    if(nombre != null) prod.setNombre(nombre);
+		    if(descripcion != null) prod.setDescripcion(descripcion);
+		    if(imagen != null) prod.setImagen(imagen);
+		    if(precio != null) prod.setPrecio(precio);
+		    productoRepository.save(prod);
 		   }//if
-		  }//foreach
 		  return prod;
 		 }//updateProducto
 }//

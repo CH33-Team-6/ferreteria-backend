@@ -1,62 +1,58 @@
 package org.generation.ferreteria.service;
 
-import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 import org.generation.ferreteria.model.Usuario;
+import org.generation.ferreteria.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class UsuarioService {
-	public final ArrayList<Usuario> lista = new ArrayList<Usuario>();
+	private final UsuarioRepository usuarioRepository;
 	@Autowired
-	public UsuarioService() {
-		lista.add(new Usuario ("Veronika", "55-30-58-34-23", "vero@gmail.com"));
-		lista.add(new Usuario ("Gabriela", "55-65-78-23-50", "gaby@gmail.com"));
-		lista.add(new Usuario ("Lilia", "55-90-34-21-24", "lili@gmail.com"));
-		
+	public UsuarioService(UsuarioRepository usuarioRepository) {
+		this.usuarioRepository= usuarioRepository;
 	}//constructor UsuarioService
-	public ArrayList<Usuario> getAllUsuarios() {
-		
-		return lista;
+	public List<Usuario> getAllUsuarios() {
+		return usuarioRepository.findAll();
 	}//getAllUsuarios
 	public Usuario getUsuario(long id) {
-		Usuario usu=null;
-		for (Usuario usuario : lista) {
-			if(id == usuario.getId()) {
-				usu=usuario;
-				break;
-			}//if
-		}//foreach
-		return usu;
+		
+		return usuarioRepository.findById(id).orElseThrow(
+				()->new IllegalArgumentException("El usuario con el id ["
+						+ "] no existe"));
 	}//getUsuario
 	public Usuario deleteUsuario(long id) {
 		Usuario usu=null;
-		for (Usuario usuario : lista) {
-			if(id == usuario.getId()) {
-				usu=usuario;
-				lista.remove(usuario);
-				break;
-			}//if
-		}//foreach
+		if (usuarioRepository.existsById(id)) {
+			usu=usuarioRepository.findById(id).get();
+			usuarioRepository.deleteById(id);
+		}//if
 		return usu;
 	}//deleteUsuario
 	public Usuario addUsuario(Usuario usuario) {
-		lista.add(usuario);
-		return usuario;
+		Optional<Usuario> tmpUsu=usuarioRepository.findByNombre(usuario.getNombre());
+		if (tmpUsu.isEmpty()) {
+			return usuarioRepository.save(usuario);
+		}//if
+		else {
+			System.out.println("El usuario ya se encuentra registrado con el nombre ["
+					+ usuario.getNombre()+"]");
+			return null;
+		}//else
 	}//addUsuario
+	
 	public Usuario updateUsuario(long id, String nombre, String numero, String correo) {
 		Usuario usu=null;
-		for (Usuario usuario : lista) {
-			if(id == usuario.getId()) {
-				if(nombre!=null) usuario.setNombre(nombre);
-				if(numero!=null) usuario.setNumero(numero);
-				if(correo!=null) usuario.setCorreo(correo);
-				usu=usuario;
-				break;
+			if(usuarioRepository.existsById(id)) {
+				usu=usuarioRepository.findById(id).get();
+				if(nombre!=null) usu.setNombre(nombre);
+				if(numero!=null) usu.setNumero(numero);
+				if(correo!=null) usu.setCorreo(correo);
+				usuarioRepository.save(usu);
 			}//if
-			
-		}//foreach
 		return usu;
 	}//updateProducto
 

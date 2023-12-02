@@ -1,6 +1,6 @@
 package org.generation.ferreteria.controller;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import org.generation.ferreteria.model.Sucursal;
 
@@ -26,9 +26,9 @@ public class SucursalController {
 		this.sucursalService = sucursalService;
 	}//constructor
 	@GetMapping
-	public ArrayList<Sucursal> getAllSucursales(){
+	public List<Sucursal> getAllSucursales(){
 		return sucursalService.getAllSucursales();
-	}//getAllSucursales
+	}//getAllSucursal
 	@GetMapping(path="{sucId}")  //http://localhost:8080/api/sucursales/id
 	public Sucursal getSucursal(@PathVariable("sucId") long id) {
 		return sucursalService.getSucursal(id);

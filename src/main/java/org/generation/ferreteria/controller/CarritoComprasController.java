@@ -1,6 +1,6 @@
 package org.generation.ferreteria.controller;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import org.generation.ferreteria.model.CarritoCompras;
 import org.generation.ferreteria.service.CarritoComprasService;
@@ -25,7 +25,7 @@ public class CarritoComprasController {
 		this.carritoComprasService = carritoComprasService;
 	}//constructor
 	@GetMapping
-	public ArrayList<CarritoCompras>getAllCarritoCompras(){
+	public List<CarritoCompras>getAllCarritoCompras(){
 		return carritoComprasService.getAllCarritoCompras();
 	}
 	@GetMapping(path="{carId}")

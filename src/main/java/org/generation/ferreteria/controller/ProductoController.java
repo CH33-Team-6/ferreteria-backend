@@ -1,6 +1,6 @@
 package org.generation.ferreteria.controller;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import org.generation.ferreteria.model.Producto;
 import org.generation.ferreteria.service.ProductoService;
@@ -25,7 +25,7 @@ public ProductoController(ProductoService productoService) {
  this.productoService = productoService;
 }//constructor que va a inicializar el productoService
 @GetMapping
-public ArrayList<Producto> getAllProductos(){
+public List<Producto> getAllProductos(){
  return productoService.getAllProductos();
 }
 @GetMapping(path="{prodId}")  //http://localhost:8080/api/productos/id
