@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Registro de Usuarios</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <!-- google fonts Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,600;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <!-- font awesome icons -->
+    <script
+      src="https://kit.fontawesome.com/3c1a14de91.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- css styles -->
+    <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="stylesheet" href="./styles/registrodeusuarios.css" />
+  </head>
+  <body>
+    <header id="header">
+      <nav id="nav" class="navbar navbar-expand-lg bg-body-tertiary">
+        <!--inicio de navbar-->
+      </nav>
+    </header>
+    <main>
+      <h1>Regístrate</h1>
+      <div
+        id="alerta-enviado"
+        class="alert alert-success"
+        role="alert"
+        style="display: none"
+      >
+        Usuario registrado exitosamente ✅
+      </div>
+      <form>
+        <div class="container">
+          <div class="mb-3">
+            <label for="formGroupExampleInput" class="form-label"
+              >Nombre<span class="red-mark">*</span></label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="formGroupExampleInput"
+              placeholder="Juan Pérez"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="formGroupExampleInput2" class="form-label">
+              Número<span class="red-mark">*</span></label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="formGroupExampleInput2"
+              placeholder="9559811779"
+              maxlength="10"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label"
+              >Usuario<span class="red-mark">*</span></label
+            >
+            <input
+              type="email"
+              class="form-control"
+              id="exampleInputEmail1"
+              placeholder="juan@correo.com"
+              aria-describedby="emailHelp"
+            />
+            <!-- <div id="emailHelp" class="form-text">
+              P. ej. usuario@ejemplo.com
+            </div> -->
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label"
+              >Contraseña<span class="red-mark">*</span></label
+            >
+            <input
+              type="password"
+              class="form-control"
+              id="exampleInputPassword1"
+              placeholder=""
+            />
+            <div id="exampleInputPassword1" class="form-text">
+              Crea una contraseña que tenga al menos 6 letras o números.
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword2" class="form-label"
+              >Confirmar Contraseña<span class="red-mark">*</span></label
+            >
+            <input
+              type="password"
+              class="form-control"
+              id="exampleInputPassword2"
+              placeholder=""
+            />
+          </div>
+          <div id="alert-red">
+            <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+              <symbol id="exclamation-triangle-fill" viewBox="0 0 16 16">
+                <path
+                  d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
+                />
+              </symbol>
+            </svg>
+            <div
+              class="alert alert-danger d-flex align-items-center"
+              role="alert"
+            >
+              <svg
+                class="bi flex-shrink-0 me-2"
+                role="img"
+                aria-label="Danger:"
+              >
+                <use xlink:href="#exclamation-triangle-fill" />
+              </svg>
+              <div id="alertValidaciones"></div>
+            </div>
+          </div>
+          <p id="registerLink">
+            ¿Ya estás registrado? inicia sesión <a href="./login.html">aquí</a>
+          </p>
+          <button
+            type="submit"
+            class="btn btn-primary btn-lg btn-block"
+            id="examenpleBtnAgregar"
+          >
+            Registrar
+          </button>
+        </div>
+      </form>
+    </main>
+    <footer id="footer"></footer>
+
+    <script src="./js/footer.js"></script>
+    <script src="./js/registrodeusuarios.js"></script>
+    <script type="module" src="./js/nav.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

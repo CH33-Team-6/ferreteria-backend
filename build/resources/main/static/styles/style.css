@@ -1,0 +1,374 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  margin-right: 0;
+  margin-left: 0;
+}
+main {
+  border-top: solid 7px #3135a0;
+  font-family: "Montserrat", sans-serif;
+}
+.navbar {
+  border-bottom: solid 7px #c10f19;
+  margin-bottom: 4px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+}
+
+.navbar-nav .nav-link {
+  color: #3135a0;
+  font-size: 18px;
+  text-align: center;
+}
+/* Cambiar el color del texto del enlace activo */
+.nav-link:hover {
+  color: #c10f19;
+}
+.navbar-brand {
+  width: 18rem;
+  height: 9rem;
+}
+.icon-nav {
+  margin-right: 1rem;
+  font-size: 24px;
+}
+/* cerrar sesión */
+.sesion-activa {
+  text-align: center;
+  color: #3135a0;
+  font-weight: 600;
+  margin-right: 2em;
+}
+
+/* boton de watsapp */
+img.btn-whatsapp {
+  display: block !important;
+  position: fixed;
+  z-index: 9999999;
+  bottom: 20px;
+  right: 20px;
+  cursor: pointer;
+  border-radius: 100px !important;
+}
+
+img.btn-whatsapp:hover {
+  border-radius: 100px !important;
+  -webkit-box-shadow: 0px 0px 15px 0px rgba(7, 94, 84, 1);
+  -moz-box-shadow: 0px 0px 15px 0px rgba(7, 94, 84, 1);
+  box-shadow: 0px 0px 15px 0px rgba(7, 94, 84, 1);
+  transition-duration: 1s;
+}
+
+footer {
+  background-color: #3135a0;
+  color: #fff;
+  padding: 20px;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  position: relative;
+}
+
+.cardfooter {
+  background-color: #3135a0;
+  text-align: center;
+  display: inline;
+  max-width: 100%;
+  height: auto;
+  padding: 20px;
+  width: 100%;
+}
+
+.card-title {
+  text-align: center;
+}
+.cardfooter p {
+  text-align: center;
+}
+.social-icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+/* Empieza productos.style */
+h3,
+h5 {
+  color: #c10f19;
+  text-align: center;
+}
+.row {
+  margin-right: 5%;
+  margin-left: 5%;
+  justify-content: space-between;
+}
+/* formulario productos */
+#formularioProductos {
+  margin: 5% 15%;
+}
+
+@media (max-width: 576px) {
+  .row {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+  }
+  footer {
+    flex-direction: column;
+  }
+  .icon-nav {
+    text-align: center;
+  }
+  .incons {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/*Estilo agregado recientemente*/
+
+.redes-link {
+  color: #ffffff;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  margin: 5px;
+  font-size: 30px;
+  cursor: pointer;
+}
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container {
+  max-width: 800px;
+  margin: auto;
+}
+
+.button {
+  background-color: #c10f19;
+  color: #3135a0;
+}
+
+.button-vermas {
+  margin-top: 10px;
+  text-align: center;
+}
+.carousel {
+  margin-top: 2rem;
+}
+/* ... Otros estilos ... */
+
+.carousel {
+  margin-top: 2rem;
+  overflow: hidden; /* Asegura que el contenido no se desborde del carrusel */
+}
+
+.carousel-inner {
+  width: 100%;
+}
+
+.carousel-item img {
+  max-width: 100%; 
+  height: auto; 
+}
+
+@media (max-width: 768px) {
+  .carousel-caption {
+    display: none; 
+  }
+}
+
+/* ... Otros estilos ... */
+
+
+
+
+
+
+
+
+
+
+
+.descuentos {
+  margin-top: 4rem;
+}
+.card-text {
+  font-family: "Montserrat", sans-serif;
+
+  margin: 1rem;
+  text-align: center;
+}
+
+.incons {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.incons img {
+  margin: 0 10px;
+}
+
+.incons p {
+  margin: 10px 0;
+}
+.dos {
+  color: #3135a0;
+  font-size: smaller;
+  font-family: "Montserrat", sans-serif;
+}
+
+.uno {
+  animation: zoom 5s infinite;
+}
+
+@keyframes zoom {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.p {
+  font-family: "Montserrat", sans-serif;
+  /* color: #3135a0; */
+}
+
+.img:hover {
+  opacity: 0.5;
+}
+.flecha {
+  background-color: #c10f19;
+}
+
+.carousel-inner {
+  width: 100%;
+  overflow: hidden;
+}
+
+@keyframes rotateIn {
+  from {
+    opacity: 0;
+    transform: rotate(-45deg);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+}
+
+.tarjeta:hover {
+  animation: rotateIn 1s ease-in-out;
+}
+
+.redes-link:hover {
+  transform: translateY(-5px);
+  filter: brightness(60%);
+}
+
+.icon-nav {
+  margin-right: 1rem;
+  font-size: 24px;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.icon-nav:hover {
+  transform: scale(1.1); /* Zoom al pasar el ratón */
+}
+
+.product-card{
+  width: 18rem;
+  height: 100%;
+  padding: 1rem;
+  margin-bottom: 12px;
+  border-radius: 50px;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.product-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 0px 15px 0px rgba(7, 94, 84, 1);
+}
+
+.product-card img {
+  object-fit: contain;
+}
+
+.product-card .card-title {
+  color: #c10f19;
+}
+
+.product-card .btn {
+  background-color: #3135a0;
+  color: #fff;
+}
+
+.card {
+  width: 18rem;
+  display:flex;
+  flex-direction: center;
+  height:80%;
+  padding: 1rem;
+  margin-bottom: 12px;
+  border-radius: 50px;
+  overflow: hidden;
+  background-color: transparent;
+  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  background-color: #d9d9d9;
+  transform: scale(1.05);
+  box-shadow: 0px 0px 15px 0px #ccc;
+}
+
+.card .card-img-top {
+  object-fit: contain;
+}
+
+.card .card-title {
+  color: #c10f19;
+}
+
+.agr-btn{
+  display:flex;
+  justify-content: center;
+
+}
+
+a.btn2{
+  display: flex;
+  justify-content: center;
+  width: 200px;
+  align-items: center;
+  align-content: center;
+  width: 18rem;
+  height: 100%;
+  padding: 1rem;
+  margin-bottom: 12px;
+  border-radius: 10px;
+  color: #3135a0;
+  text-decoration: none;
+  font-size: 20px;
+
+}
+
+.card .btn {
+  background-color: transparent;
+  color: #fff;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.card .btn:hover {
+  background-color: #3135a0;
+  transform: scale(1.1);
+}

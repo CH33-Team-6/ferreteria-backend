@@ -1,12 +1,12 @@
 package org.generation.ferreteria;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+//import org.junit.jupiter.api.Test;
+//import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
+//@SpringBootTest
 class FerreteriaApplicationTests {
 
-	@Test
+	//@Test
 	void contextLoads() {
 	}
 

@@ -1,0 +1,281 @@
+:root {
+    --primary: #3135a0;
+    --secondary: #c10f19;
+    --dark: #212121;
+    --light: #f3f3f3;
+    --columns: repeat(3, 1fr);
+    --rows: 1fr;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /*Nosotras*/
+  
+  section{
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    align-content:center;
+  }
+  
+  .nosotras {
+    border-top: 7px solid #3135a0;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    color: #c10f19;
+    font-weight: 200;
+    margin-bottom:0;
+    position: relative;
+  }
+  .card-title {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    animation: slideRigth 1s ease forwards;
+    animation-delay: 0.7s;
+  }
+  
+  .card-body {
+    display: grid;
+    flex-direction: row;
+    align-items: center; /*center*/
+    margin: 2rem;
+    border: 1px solid rgb(252, 250, 250);
+    background-color: #ccc;
+    max-width: 100%;
+    padding: 20px; /*20px*/
+    border-radius: 30px;
+    box-shadow: 0px 7px 10px rgba(61, 56, 56, 0.5);
+  }
+  .texto,
+  h6 {
+    color: var(--dark);
+  }
+  
+  .container-flipcards {
+    width: 60%;
+    height: 20vh;
+    margin: 5px;
+    display: flex;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px; /* Espacio entre las tarjetas */
+    justify-content: center;
+  
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  .row {
+    display: flex;
+  }
+  
+  .flip-cards{
+  
+    width: 100%;
+    height: 20vh;
+    margin: 5px;
+    display: flex;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px; /* Espacio entre las tarjetas */
+    justify-content: center;
+    flex-wrap:wrap;
+  }
+  
+  /*Las 6 cards*/
+  .card {
+    margin: auto 0;
+    width: 350px;
+    height: 520px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    text-align: center;
+    background-color: var(--light); /* Color de fondo para las tarjetas */
+    border-radius: 16px;
+    box-shadow: 0px 3px 18px 3px rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .card__inner {
+    width: 100%;
+    height: 100%;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+  }
+  
+  .card__inner.is-flipped {
+    transform: rotateY(180deg);
+  }
+  .card__face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    --webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    overflow: hidden;
+    border-radius: 16px;
+    box-shadow: 0px 3px 18px 3px rgba(0, 0, 0, 0.2);
+  }
+  .card__face--front {
+    background-image: linear-gradient(
+      to bottom right,
+      var(--primary),
+      var(--secondary)
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .card__face--front h2 {
+    color: #fff;
+    font-size: 32px;
+  }
+  .card__face--back {
+    background-color: var(--light);
+    transform: rotateY(180deg);
+  }
+  .card__content {
+    width: 100%;
+    height: 100%;
+  }
+  .card__header {
+    position: relative;
+    padding: 30px 30px 40px;
+  }
+  .card__header:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    border-radius: 0 0 50% 0;
+    background-image: linear-gradient(
+      to bottom left,
+      var(--primary) 10%,
+      var(--secondary) 115%
+    );
+  }
+  .pp {
+    display: block;
+    width: 128px;
+    height: 128px;
+    margin: 0 auto 30px;
+    border-radius: 50%;
+    background-color: #fff;
+    border: 5px solid #3135a0;
+    object-fit: cover;
+  }
+  .card__header h2 {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 900;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  .card__body {
+    padding: 20px;
+  }
+  .card__body h3 {
+    color: var(--dark);
+    font-weight: 600;
+    margin-bottom: 15px;
+  }
+  .card__body {
+    color: var(--dark);
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+
+/*animaciones agregadas recientemente*/
+.card:hover {
+    transform: scale(1.05);
+    background-color: #ccc;
+  }
+  
+  .card:hover {
+    cursor: pointer;
+  }
+  
+  
+  /* Efecto de aumento de tamaño e iluminación en rojo en los iconos de LinkedIn y GitHub */
+  .dev-icon:hover {
+    transform: scale(1.2);
+    color:var(--primary); /* Rojo */
+  }
+
+ 
+.dev-icon:hover {
+    transform: scale(1.2);
+    transform-origin: center;
+  }
+  
+  .dev-icon:hover::before {
+    color: var(--primary); /* Rojo */
+  }
+  
+  .dev-icon {
+    font-size: 25px; 
+    margin:3px;
+  }
+  
+  .card__body h3,
+.card__body p {
+  transition: transform 0.3s ease-in-out;
+}
+
+.card__body p:hover{
+    transform:scale(1.1);
+
+}
+
+.card__body h3:hover{
+  transform: scale(1.1);
+  color: var(--dark);
+  text-shadow: 0 0 10px  #e91e63,
+               0 0 20px  #e91e63,
+               0 0 30px  #e91e63;
+}
+
+  
+  .card__header h2{
+    position: relative;
+    font-size: 2rem;
+    font-weight: bold;
+    color:#ccc;
+    transition: color 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .card__header h2:hover {
+    color: #fff; /* Cambiar el color a blanco cuando el cursor está sobre el texto */
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8),
+                 0 0 20px rgba(255, 255, 255, 0.8),
+                 0 0 30px rgba(255, 255, 255, 0.8);
+                 transform: scale(1.6);
+  }
+  
+
+  .card__inner {
+    transform-style: preserve-3d;
+  }
+
+  .card__face,
+.card__face--front {
+  backface-visibility: hidden;
+}
+
+  

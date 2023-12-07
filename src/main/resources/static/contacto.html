@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" href="./assets/img/precio_justo.png" />
+    <title>Contáctanos</title>
+    <!-- bootstrap styles -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <!-- css styles -->
+    <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="stylesheet" href="./styles/contacto.css" />
+    <!-- google fonts Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,600;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <!-- font awesome icons -->
+    <script
+      src="https://kit.fontawesome.com/3c1a14de91.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header>
+      <nav id="nav" class="navbar navbar-expand-lg bg-body-tertiary">
+        <!--navbar-->
+      </nav>
+    </header>
+    <main class="grid-container2">
+      <div class="container">
+        <div
+          id="alerta-enviado"
+          class="alert alert-success"
+          role="alert"
+          style="display: none"
+        >
+          Mensaje enviado ✅
+        </div>
+        <form class="contacto-form">
+          <h5>Si tienes alguna pregunta o comentario, déjanos tus datos.</h5>
+          <br />
+          <h4>Nos pondremos en contacto contigo lo antes posible.</h4>
+          <div class="mb-3">
+            <label for="Asunto" class="form-label"
+              >Asunto<span class="red-mark">*</span></label
+            >
+            <input
+              type="asunto"
+              class="form-control"
+              id="Asunto"
+              value=""
+              placeholder="Cotizaciones"
+              required
+            />
+            <div id="invalid-subject"></div>
+          </div>
+          <div class="mb-3">
+            <label for="Name" class="form-label"
+              >Nombre<span class="red-mark">*</span></label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="Name"
+              placeholder="Juan Pérez"
+              required
+            />
+            <div id="invalid-name"></div>
+          </div>
+          <div class="mb-3">
+            <label for="Email" class="form-label"
+              >Correo electrónico<span class="red-mark">*</span></label
+            >
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              aria-describedby="emailHelp"
+              placeholder="juan@correo.com"
+              required
+            />
+            <div id="invalid-email"></div>
+          </div>
+          <div class="mb-3">
+            <label for="Number" class="form-label"
+              >Teléfono<span class="red-mark">*</span></label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="Number"
+              placeholder="9559811779"
+              maxlength="10"
+              required
+            />
+            <div id="invalid-number"></div>
+          </div>
+          <div class="mb-3">
+            <label for="Mensaje" class="form-label">Mensaje</label>
+            <textarea
+              type="textarea"
+              class="form-control"
+              id="Mensaje"
+              placeholder="Escribe aquí tu mensaje"
+              value=""
+              required
+              cols="30"
+              rows="10"
+            ></textarea>
+          </div>
+          <div class="centrar">
+            <button
+              type="button"
+              id="btnEnviar"
+              class="btn btn-primary btn-lg btn-block"
+            >
+              Enviar
+            </button>
+            <br />
+            <button
+              type="button"
+              id="btnLimpiar"
+              class="btn btn-primary btn-lg btn-block"
+            >
+              Limpiar
+            </button>
+          </div>
+        </form>
+        <!--termina el formulario-->
+      </div>
+
+      <div class="container2">
+        <h2>¿Tienes alguna duda con tu compra?</h2>
+        <h5>Manda un mensaje a la sucursal en donde realizaste tu compra</h5>
+        <br />
+        <h6><strong>Sucursal San Antonio</strong></h6>
+
+        <button
+          class="num"
+          alt="Whatsapp"
+          onclick="window.location.href='https://wa.me/+528130391674?text=Hola!%20Estoy%20interesado%20en%20tu%20servicio'"
+        >
+          <i class="fa-brands fa-whatsapp fa-lg" style="color: #198754"></i>
+          8130391674
+        </button>
+        <br />
+        <br />
+        <h6><strong>Sucursal Higueras</strong></h6>
+        <button
+          class="num"
+          alt="Whatsapp"
+          onclick="window.location.href='https://wa.me/+528115565307?text=Hola!%20Estoy%20interesado%20en%20tu%20servicio'"
+        >
+          <i class="fa-brands fa-whatsapp fa-lg" style="color: #198754"></i>
+          8115565307
+        </button>
+        <!--Linkeado el mail :3-->
+        <br />
+        <br />
+        <p>
+          Si deseas localizar la tienda más cercana a tu domicilio da click
+          <a
+            href="https://www.google.com.mx/maps/search/Ferreter%C3%ADa+el+Precio+Justo/@25.6188871,-100.1528407,14z/data=!3m1!4b1?entry=ttu"
+            target="_blank"
+            >aquí</a
+          >
+          .
+        </p>
+      </div>
+    </main>
+
+    <footer id="footer"></footer>
+    <script
+      src="https://getbootstrap.com/docs/5.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./js/footer.js"></script>
+    <script type="module" src="./js/nav.js"></script>
+    <script type="module" src="./js/contacto.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      (function () {
+        emailjs.init("Bu0ia53OYsCuge9wg");
+      })();
+    </script>
+  </body>
+</html>

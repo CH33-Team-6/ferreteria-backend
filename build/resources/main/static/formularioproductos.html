@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Formulario productos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+      <!-- css styles -->
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
+  <body>
+    <header >
+        <nav id="nav" class="navbar navbar-expand-lg bg-body-tertiary"><!--inicio de navbar-->
+        </nav>
+    </header>
+    <main>
+      <div id="formularioProductos">
+        <div class="input-group mb-3">
+          <label class="input-group-text" for="inputGroupFile02">
+            <span data-bs-hover-animate="pulse">Imagen</span>
+          </label>
+          <input type="file" class="form-control" id="inputGroupFile02" accept=".jpg, .jpeg, .png" style="display: none;">
+        <button type="button" class="btn " onclick="document.getElementById('inputGroupFile02').click()">Seleccionar archivo</button>
+          
+        </div>
+        
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="inputGroup-sizing-default">Nombre del producto</span>
+          <input type="text" class="form-control" id="inputNombre" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Así aparecerá en las tarjetas de producto.">
+        </div>
+        <div class="form-group input-group mb-3">
+          <label for="exampleFormControlSelect1" class="input-group-text" id="inputGroup-sizing-default">Categoría</label>
+          <select class="form-control" id="inputCategoria">
+            <option value="">Selecciona una opción</option>
+            <option value="ferreteria">Ferretería</option>
+            <option value="materialConstrucción">Material de construcción</option>
+          </select>
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="inputGroup-sizing-default">Id del producto</span>
+          <input type="text" class="form-control" id="inputId" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" maxlength="6" placeholder="Sólo números" >
+        </div>
+        
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="inputGroup-sizing-default">Descripción</span>
+          <input type="text" class="form-control" id="inputDescripcion" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Agrega las características del producto">
+        </div>
+        
+        <div class="input-group mb-3">
+          <span class="input-group-text">$</span>
+          <!-- <span class="input-group-text">0.00</span> -->
+          <input type="text" class="form-control" id="inputPrecio" maxlength="6" placeholder="Agrega el pecio en pesos sin .00 ni signos especiales">
+        </div>
+        <div id="invalid"> </div>
+        <button type="button" id="btnAgregar" class="btn btn-danger" style="display: flex; align-items: center;">Agregar</button>
+        </div>
+     </div>
+     <div id="productos-agregados"> </div>
+    </main>
+  </br>
+
+      <footer id = "footer">  
+      </footer>
+    
+    <script src="./js/formularioproductos.js" type="module"></script>
+    <script src="./js/nav.js"></script>
+    <script src="./js/footer.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  </body>
+</html>

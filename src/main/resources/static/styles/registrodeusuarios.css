@@ -1,0 +1,35 @@
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+.container {
+    margin: 100px auto;
+}
+
+
+.red-mark{
+    color: red;
+}
+
+h1 {
+    margin: 70px auto;
+}
+#alerta-enviado {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #d4edda; 
+    border: 1px solid #c3e6cb; 
+    padding: 45px; /* Espaciado interno */
+    border-radius: 5px; 
+    z-index: 1000; 
+    font-size: 20px;
+  }

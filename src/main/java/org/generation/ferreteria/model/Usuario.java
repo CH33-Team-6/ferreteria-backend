@@ -17,30 +17,30 @@ public class Usuario {
 	@Column(nullable=false)
 	private String nombre;
 	@Column(nullable=false)
-	private String numero;
+	private String password;
 	@Column(nullable=false)
 	private String correo;
-	 
+	
 
-	public Usuario(String nombre, String numero, String correo) {
+	public Usuario(String nombre, String password, String correo) {
 		this.nombre = nombre;
-		this.numero = numero;
+		this.password = password;
 		this.correo = correo;
 	}//constructor
 	public Usuario() {
 		
-	}//constructor
+	}//constructor vacio
 	public String getNombre() {
 		return nombre;
 	}
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	public String getNumero() {
-		return numero;
+	public String getPassword() {
+		return password;
 	}
-	public void setNumero(String numero) {
-		this.numero = numero;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	public String getCorreo() {
 		return correo;
@@ -53,6 +53,7 @@ public class Usuario {
 	}
 	@Override
 	public String toString() {
-		return "Usuario [id=" + id + ", nombre=" + nombre + ", numero=" + numero + ", correo=" + correo + "]";
-	}
+		return "Usuario [id=" + id + ", nombre=" + nombre + ", password=" + password + ", correo=" + correo + "]";
+	}//toString
+	
 }
