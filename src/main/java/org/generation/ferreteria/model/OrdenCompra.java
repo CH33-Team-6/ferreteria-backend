@@ -8,36 +8,36 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name= "ordencompra")
+@Table(name= "orden_compra")
 public class OrdenCompra {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name= "id", unique=true, nullable=false)
 	private Long id;
 	@Column(nullable=false)
-    private String fechaOrden;
+    private String fecha;
 	@Column(nullable=false)
     private String status;
-    private Double precioTotal;
-    private Integer cantidadProductos;
+    private Double precio;
+    private Integer cantidad;
 
 
 
 	public OrdenCompra(String fechaOrden, String status, Double precioTotal, Integer cantidadProductos) {
-		this.fechaOrden = fechaOrden;
+		this.fecha = fechaOrden;
 		this.status = status;
-		this.precioTotal = precioTotal;
-		this.cantidadProductos = cantidadProductos;
+		this.precio = precioTotal;
+		this.cantidad = cantidadProductos;
 		
 	}//constructor
 	public OrdenCompra() {
 		
 	}//constructor
 	public String getFechaOrden() {
-		return fechaOrden;
+		return fecha;
 	}
 	public void setFechaOrden(String fechaOrden) {
-		this.fechaOrden = fechaOrden;
+		this.fecha = fechaOrden;
 	}
 	public String getStatus() {
 		return status;
@@ -46,23 +46,23 @@ public class OrdenCompra {
 		this.status = status;
 	}
 	public Double getPrecioTotal() {
-		return precioTotal;
+		return precio;
 	}
 	public void setPrecioTotal(Double precioTotal) {
-		this.precioTotal = precioTotal;
+		this.precio = precioTotal;
 	}
 	public Integer getCantidadProductos() {
-		return cantidadProductos;
+		return cantidad;
 	}
 	public void setCantidadProductos(Integer cantidadProductos) {
-		this.cantidadProductos = cantidadProductos;
+		this.cantidad = cantidadProductos;
 	}
 	public Long getId() {
 		return id;
 	}
 	@Override
 	public String toString() {
-		return "OrdenCompra [id=" + id + ", fechaOrden=" + fechaOrden + ", status=" + status + ", precioTotal="
-				+ precioTotal + ", cantidadProductos=" + cantidadProductos + "]";
+		return "OrdenCompra [id=" + id + ", fecha=" + fecha + ", status=" + status + ", precio="
+				+ precio + ", cantidad=" + cantidad + "]";
 	}  
 }

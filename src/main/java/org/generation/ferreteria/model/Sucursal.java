@@ -8,22 +8,22 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="sucursales")
+@Table(name="sucursal")
 public class Sucursal {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id", unique=true, nullable=false)
 	private Long id;
 	@Column(nullable=false)
-	private String nombreSucursal;
+	private String sucursal;
 	@Column(nullable=false)
 	private String ubicacion;
 	@Column(nullable=false)
 	private String telefono;
 
 
-	public Sucursal(String nombreSucursal, String ubicacion, String telefono) {
-		this.nombreSucursal = nombreSucursal;
+	public Sucursal(String sucursal, String ubicacion, String telefono) {
+		this.sucursal = sucursal;
 		this.ubicacion = ubicacion;
 		this.telefono = telefono;
 	}//constructor
@@ -33,11 +33,11 @@ public class Sucursal {
 	}//constructor
 
 	public String getNombreSucursal() {
-		return nombreSucursal;
+		return sucursal;
 	}
 
 	public void setNombreSucursal(String nombreSucursal) {
-		this.nombreSucursal = nombreSucursal;
+		this.sucursal = nombreSucursal;
 	}
 
 	public String getUbicacion() {
@@ -62,7 +62,7 @@ public class Sucursal {
 
 	@Override
 	public String toString() {
-		return "Sucursal [id=" + id + ", nombreSucursal=" + nombreSucursal + ", ubicacion=" + ubicacion + ", telefono="
+		return "Sucursal [id=" + id + ", sucursal=" + sucursal + ", ubicacion=" + ubicacion + ", telefono="
 				+ telefono + "]";
 	}
 		

@@ -35,7 +35,7 @@ public class OrdenCompraService {
 	}//deleteOrdenCompra
 	
 	public OrdenCompra addOrdenCompra(OrdenCompra ordenCompra) {
-		Optional<OrdenCompra> tmpOc= ordenCompraRepository.findByFechaOrden(ordenCompra.getFechaOrden());
+		Optional<OrdenCompra> tmpOc= ordenCompraRepository.findByFecha(ordenCompra.getFechaOrden());
 		if (tmpOc.isEmpty()) {
 			return ordenCompraRepository.save(ordenCompra);
 		}//if

@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="usuarios")
+@Table(name="usuario")
 public class Usuario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,15 +17,18 @@ public class Usuario {
 	@Column(nullable=false)
 	private String nombre;
 	@Column(nullable=false)
-	private String password;
+	private String telefono;
 	@Column(nullable=false)
-	private String correo;
+	private String email;
+	@Column(nullable=false)
+	private String password;
 	
 
-	public Usuario(String nombre, String password, String correo) {
+	public Usuario(String nombre, String telefono, String email, String password) {
 		this.nombre = nombre;
+		this.telefono = telefono;
+		this.email = email;
 		this.password = password;
-		this.correo = correo;
 	}//constructor
 	public Usuario() {
 		
@@ -36,24 +39,32 @@ public class Usuario {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+	public String getTelefono() {
+		return telefono;
+	}
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 	public String getPassword() {
 		return password;
 	}
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getCorreo() {
-		return correo;
-	}
-	public void setCorreo(String correo) {
-		this.correo = correo;
-	}
 	public Long getId() {
 		return id;
 	}
 	@Override
 	public String toString() {
-		return "Usuario [id=" + id + ", nombre=" + nombre + ", password=" + password + ", correo=" + correo + "]";
-	}//toString
+		return "Usuario [id=" + id + ", nombre=" + nombre + ", telefono=" + telefono + ", email=" + email
+				+ ", password=" + password + "]";
+	}
+	
 	
 }

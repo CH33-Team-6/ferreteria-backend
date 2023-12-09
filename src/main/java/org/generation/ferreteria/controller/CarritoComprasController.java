@@ -42,10 +42,10 @@ public class CarritoComprasController {
 	}
 	@PutMapping(path="{carId}")
 	public CarritoCompras updateCarritoCompras(@PathVariable("carId") long id, 
-		@RequestParam(required=false) String fechaCreacion,
-		@RequestParam(required=false) Integer cantidadProducto,
-		@RequestParam(required=false) Double precioTotal) {
-		return carritoComprasService.updateCarritoCompras(id, fechaCreacion, cantidadProducto, precioTotal);
+		@RequestParam(required=false) String fecha,
+		@RequestParam(required=false) Integer cantidad,
+		@RequestParam(required=false) Double precio) {
+		return carritoComprasService.updateCarritoCompras(id, fecha, cantidad, precio);
 	}
 	
 }

@@ -8,5 +8,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface OrdenCompraRepository extends JpaRepository<OrdenCompra, Long>{
-	Optional<OrdenCompra> findByFechaOrden(String fechaOrden);
+	Optional<OrdenCompra> findByFecha(String fecha);
 }

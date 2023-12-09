@@ -8,53 +8,53 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="CarritoCompras")
+@Table(name="carrito")
 public class CarritoCompras {
 @Id
 @GeneratedValue(strategy=GenerationType.IDENTITY)
 @Column(name="id", unique=true, nullable=false)
 	private Long id;
 @Column(nullable=false)
-	private String fechaCreacion;
+	private String fecha;
 @Column(nullable=false)
-	private Integer cantidadProducto;
+	private Integer cantidad;
 @Column(nullable=false)
-	private Double precioTotal;
+	private Double precio;
 	
-	public CarritoCompras(String fechaCreacion, int cantidadProducto, double precioTotal) {
-		this.fechaCreacion = fechaCreacion;
-		this.cantidadProducto = cantidadProducto;
-		this.precioTotal = precioTotal;
-		
-	}//constructor
+	
+	public CarritoCompras(String fecha, Integer cantidad, Double precio) {
+	
+	this.fecha = fecha;
+	this.cantidad = cantidad;
+	this.precio = precio;
+}
 	public CarritoCompras() {
 		
 	}//constructor
-	public String getFechaCreacion() {
-		return fechaCreacion;
+	public String getFecha() {
+		return fecha;
 	}
-	public void setFechaCreacion(String fechaCreacion) {
-		this.fechaCreacion = fechaCreacion;
+	public void setFecha(String fecha) {
+		this.fecha = fecha;
 	}
-	public int getCantidadProducto() {
-		return cantidadProducto;
+	public Integer getCantidad() {
+		return cantidad;
 	}
-	public void setCantidadProducto(int cantidadProducto) {
-		this.cantidadProducto = cantidadProducto;
+	public void setCantidad(Integer cantidad) {
+		this.cantidad = cantidad;
 	}
-	public double getPrecioTotal() {
-		return precioTotal;
+	public Double getPrecio() {
+		return precio;
 	}
-	public void setPrecioTotal(double precioTotal) {
-		this.precioTotal = precioTotal;
+	public void setPrecio(Double precio) {
+		this.precio = precio;
 	}
 	public Long getId() {
 		return id;
 	}
 	@Override
 	public String toString() {
-		return "CarritoCompras [id=" + id + ", fechaCreacion=" + fechaCreacion + ", cantidadProducto="
-				+ cantidadProducto + ", precioTotal=" + precioTotal + "]";
+		return "CarritoCompras [id=" + id + ", fecha=" + fecha + ", cantidad=" + cantidad + ", precio=" + precio + "]";
 	}
 	
 }//class CarritoCompras

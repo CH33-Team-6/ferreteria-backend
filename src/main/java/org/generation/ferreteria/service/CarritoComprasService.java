@@ -32,24 +32,24 @@ public class CarritoComprasService {
 	return car;
 	}//deleteCarritoCompras
 	public CarritoCompras addCarritoCompras(CarritoCompras carritoCompras) {
-		Optional<CarritoCompras> tmpCar= carritoComprasRepository.findByfechaCreacion(carritoCompras.getFechaCreacion());
+		Optional<CarritoCompras> tmpCar= carritoComprasRepository.findByfecha(carritoCompras.getFecha());
 		if (tmpCar.isEmpty()) {
 			return carritoComprasRepository.save(carritoCompras);
 		}//if
 		else {
 			System.out.println("Ya existe el carrito de compras con la fechaCreacion ["
-					+ carritoCompras.getFechaCreacion() +"]");
+					+ carritoCompras.getFecha() +"]");
 			return null;
 		}//else
 	}//addCarrito
-	public CarritoCompras updateCarritoCompras(long id, String fechaCreacion, Integer cantidadProducto,
-			Double precioTotal) {
+	public CarritoCompras updateCarritoCompras(long id, String fecha, Integer cantidad,
+			Double precio) {
 		CarritoCompras car = null;
 			if(carritoComprasRepository.existsById(id)) {
 				car=carritoComprasRepository.findById(id).get();
-				if(fechaCreacion != null) car.setFechaCreacion(fechaCreacion);
-				if(cantidadProducto != null) car.setCantidadProducto(cantidadProducto);
-				if(precioTotal != null) car.setPrecioTotal(precioTotal);
+				if(fecha != null) car.setFecha(fecha);
+				if(cantidad != null) car.setCantidad(cantidad);
+				if(precio != null) car.setPrecio(precio);
 				carritoComprasRepository.save(car);
 			}//if
 		return car;

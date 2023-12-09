@@ -8,5 +8,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface CarritoComprasRepository extends JpaRepository<CarritoCompras, Long> {
-	Optional<CarritoCompras> findByfechaCreacion(String fechaCreacion);
+	Optional<CarritoCompras> findByfecha(String fecha);
 }

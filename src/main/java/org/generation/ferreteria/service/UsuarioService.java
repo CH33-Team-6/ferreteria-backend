@@ -35,30 +35,30 @@ public class UsuarioService {
 		return usu;
 	}//deleteUsuario
 	public Usuario addUsuario(Usuario usuario) {
-		Optional<Usuario> tmpUsu=usuarioRepository.findByCorreo(usuario.getCorreo());
+		Optional<Usuario> tmpUsu=usuarioRepository.findByEmail(usuario.getEmail());
 		if (tmpUsu.isEmpty()) {
 			return usuarioRepository.save(usuario);
 		}//if
 		else {
 			System.out.println("El usuario ya se encuentra registrado con el nombre ["
-					+ usuario.getCorreo()+"]");
+					+ usuario.getEmail()+"]");
 			return null;
 		}//else
 	}//addUsuario
 	
-	public Usuario updateUsuario(long id, String nombre, String password, String correo) {
+	public Usuario updateUsuario(long id, String nombre, String password, String email) {
 		Usuario usu=null;
 			if(usuarioRepository.existsById(id)) {
 				usu=usuarioRepository.findById(id).get();
 				if(nombre!=null) usu.setNombre(nombre);
 				if(password!=null) usu.setPassword(password);
-				if(correo!=null) usu.setCorreo(correo);
+				if(email!=null) usu.setEmail(email);
 				usuarioRepository.save(usu);
 			}//if
 		return usu;
 	}//updateProducto
 	public boolean validateUser(Usuario usuario) {
-		  Optional<Usuario> userByEmail = usuarioRepository.findByCorreo(usuario.getCorreo());
+		  Optional<Usuario> userByEmail = usuarioRepository.findByEmail(usuario.getEmail());
 		  if(userByEmail.isPresent()) {
 		   Usuario user = userByEmail.get();
 		   if(passwordEncoder.matches(usuario.getPassword(), user.getPassword())) {

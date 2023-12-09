@@ -37,7 +37,7 @@ public class SucursalService {
 	}//deleteSucursal
 	
 	public Sucursal addSucursal(Sucursal sucursal) {
-		Optional<Sucursal> tmpSuc=sucursalRepository.findBynombreSucursal(sucursal.getNombreSucursal());
+		Optional<Sucursal> tmpSuc=sucursalRepository.findBySucursal(sucursal.getNombreSucursal());
 		if (tmpSuc.isEmpty()) {
 			return sucursalRepository.save(sucursal);
 		}//if

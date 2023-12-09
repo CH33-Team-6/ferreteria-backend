@@ -31,8 +31,6 @@ public Producto(String nombre, String descripcion, String imagen, Double precio)
 
 }//Constructor
 public Producto() {
-		
-	
 }//Constructor
 public String getNombre() {
 	return nombre;
