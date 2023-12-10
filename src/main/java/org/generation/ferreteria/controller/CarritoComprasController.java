@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(path="/api/carrito/")
+@RequestMapping(path="/api/carritos/")
 
 public class CarritoComprasController {
 	private final CarritoComprasService carritoComprasService;

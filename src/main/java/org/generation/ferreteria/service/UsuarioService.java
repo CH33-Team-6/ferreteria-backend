@@ -35,15 +35,18 @@ public class UsuarioService {
 		return usu;
 	}//deleteUsuario
 	public Usuario addUsuario(Usuario usuario) {
-		Optional<Usuario> tmpUsu=usuarioRepository.findByEmail(usuario.getEmail());
-		if (tmpUsu.isEmpty()) {
-			return usuarioRepository.save(usuario);
-		}//if
-		else {
-			System.out.println("El usuario ya se encuentra registrado con el nombre ["
-					+ usuario.getEmail()+"]");
-			return null;
-		}//else
+		Usuario user = null;
+		if(usuarioRepository.findByEmail(usuario.getEmail()).isEmpty()) {
+			
+			//password encode
+			usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));
+			
+			user = usuarioRepository.save(usuario);
+		} else {
+			System.out.println("El usuario con el email [" + usuario.getEmail()
+					+ "] ya se encuentra registrado.");
+		}//if isEmpty
+        return user; 
 	}//addUsuario
 	
 	public Usuario updateUsuario(long id, String nombre, String password, String email) {
@@ -59,10 +62,11 @@ public class UsuarioService {
 	}//updateProducto
 	public boolean validateUser(Usuario usuario) {
 		  Optional<Usuario> userByEmail = usuarioRepository.findByEmail(usuario.getEmail());
+		  
 		  if(userByEmail.isPresent()) {
 		   Usuario user = userByEmail.get();
 		   if(passwordEncoder.matches(usuario.getPassword(), user.getPassword())) {
-		//   if(user.getPassword().equals(usuario.getPassword())) {
+//		   if(user.getPassword().equals(usuario.getPassword())) {
 		    return true;
 		   }//equals password
 		  }//isPresent

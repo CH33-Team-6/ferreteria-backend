@@ -45,15 +45,16 @@ public class ProductoService {
 		 }//else
 		 }//addProducto
 		 
-		 public Producto updateProducto(long id, String nombre, String descripcion, String imagen, Double precio) {
+		 public Producto updateProducto(Long id, String nombre, String imagen, Double precio, String descripcion, Double cantidad) {
 		  Producto prod = null;
 		   if(productoRepository.existsById(id)) {
-		    //validar cual tiene valor
+		    
 			prod=productoRepository.findById(id).get();
 		    if(nombre != null) prod.setNombre(nombre);
 		    if(descripcion != null) prod.setDescripcion(descripcion);
 		    if(imagen != null) prod.setImagen(imagen);
 		    if(precio != null) prod.setPrecio(precio);
+		    if(cantidad != null) prod.setCantidad(cantidad);
 		    productoRepository.save(prod);
 		   }//if
 		  return prod;
