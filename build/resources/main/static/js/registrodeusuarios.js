@@ -61,16 +61,16 @@ btnRegistrarElement.addEventListener("click", function (event) {
   } else {
     const body = {
       nombre: nombreElement.value,
-      numero: telefonoElement.value,
-      usuario: emailElement.value,
-      contraseña: conContraseñaElement.value,
+      telefono: telefonoElement.value,
+      email: emailElement.value,
+      password: conContraseñaElement.value,
     };
     if (isValid) {
       fetch("https://preciojusto.onrender.com/api/usuarios/", {
         method: "POST",
-        body,
+        body: JSON.stringify(body),
       })
-        .then((response) => response.text())
+        .then((response) => response.json())
         .then((result) => {
           console.log(result);
           document.getElementById("alerta-enviado").style.display = "block";
