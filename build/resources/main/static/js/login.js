@@ -22,7 +22,8 @@ btnEnviar.addEventListener("click", function (event) {
     .then((result) => {
       sessionStorage.setItem("accessToken", result.accessToken);
       sessionStorage.setItem("username", body.email)
-      showAlert("success", `Bienvenido ${body.email.split("@")}`);
+      const [userName] = sessionStorage.getItem("username").split("@")
+      showAlert("success", `Bienvenido ${userName}`);
 
       // Redirige después de mostrar la alerta
       setTimeout(function () {
