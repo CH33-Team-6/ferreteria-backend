@@ -1,11 +1,9 @@
-
-
 window.addEventListener("load", async function (event) {
   let items = [];
 
   async function getData() {
     try {
-      const response = await fetch("http://localhost:8080/api/productos/");
+      const response = await fetch("https://preciojusto.onrender.com/api/productos/");
       const result = await response.json();
       console.log(result);
       return result;
@@ -32,9 +30,9 @@ window.addEventListener("load", async function (event) {
 
 function addItem(item) {
   const itemHTML = `<div class="card" style="width: 18rem; object-fit:contain; height:100%; padding:1rem; margin-bottom: 12px; border-radius: 50px;"onmouseover="this.style.backgroundColor='#D9D9D9'"onmouseout="this.style.backgroundColor='transparent'"> 
-         <img src= " ${item.image}  " class="card-img-top" alt="image">
+         <img src= " ${item.imagen}  " class="card-img-top" alt="image">
          <div class="card-body" style="text-align:center; "> 
-             <h5 class="card-title" style="color:#C10F19;">$${item.price}.00</h5>
+             <h5 class="card-title" style="color:#C10F19;">$${item.precio}.00</h5>
             <p class="card-text">${item.nombre}</p>
               <a href="#" class="btn" style="background-color:#3135A0; color:#fff">Agregar al carrito</a>
           </div>
@@ -42,4 +40,4 @@ function addItem(item) {
       <br/>`;
   const itemsContainer = document.getElementById("list-items");
   itemsContainer.innerHTML += itemHTML;
-};
+}
