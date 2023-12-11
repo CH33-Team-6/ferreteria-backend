@@ -27,7 +27,7 @@ btnEnviar.addEventListener("click", function (event) {
       // Redirige después de mostrar la alerta
       setTimeout(function () {
         window.location.href = "./index.html";
-      }, 3000);
+      }, 2000);
     })
     .catch((error) => {
       console.log("error", error);

@@ -68,11 +68,14 @@ btnRegistrarElement.addEventListener("click", function (event) {
   if (isValid) {
     fetch("https://preciojusto.onrender.com/api/usuarios/", {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify(body),
     })
       .then((response) => response.json())
       .then((result) => {
-        console.log(result);
+        console.log(result, body, JSON.stringify(body));
         document.getElementById("alerta-enviado").style.display = "block";
         setTimeout(function () {
           document.getElementById("alerta-enviado").style.display = "none";
