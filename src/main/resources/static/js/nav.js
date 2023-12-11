@@ -74,7 +74,7 @@ div2.insertAdjacentHTML(
 //*Sesión activa mensaje*/
  document.addEventListener("DOMContentLoaded", function () {
    const sesionActiva = sessionStorage.getItem("accessToken"); //localStorage.getItem("sesionActiva");
-  const [userName] = sessionStorage.getItem("userName").split(" ");
+  const [userName] = sessionStorage.getItem("username").split("@");
 
  if (sesionActiva) {
    // Si hay una sesión activa, muestra el mensaje en el navbar
