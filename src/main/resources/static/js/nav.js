@@ -100,7 +100,8 @@ div2.insertAdjacentHTML(
 
  cerrarSesionBtn.addEventListener("click", function (e) {
    e.preventDefault();
-   sessionStorage.removeItem("sesionActiva");
+   sessionStorage.removeItem("accessToken");
+   sessionStorage.removeItem("username");
    window.location.href = "./login.html";
  });
  }
