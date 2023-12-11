@@ -63,7 +63,7 @@ div2.insertAdjacentHTML(
   "beforeend",
   `   
 <div class="icon-nav" id="sale-icon">
-<a href="#" class="nav-link"><i class="fa-solid fa-cart-shopping fa-flip-horizontal fa-lg" style="color: #3135a0;"></i></a>
+<button id="icon-shop" class="nav-link"><i class="fa-solid fa-cart-shopping fa-flip-horizontal fa-lg" style="color: #3135a0;"></i></button>
 </div>
 <div class="icon-nav" id="user-icon">
 <a href="./registrodeusuarios.html" class="nav-link"><i class="fa-regular fa-circle-user fa-lg" style="color: #3135A0;"></i></a>
@@ -72,36 +72,36 @@ div2.insertAdjacentHTML(
 );
 
 /*Sesión activa mensaje*/
-document.addEventListener("DOMContentLoaded", function () {
-  const sesionActiva = localStorage.getItem("sesionActiva");
-  const [userName] = localStorage.getItem("userName").split(" ");
+// document.addEventListener("DOMContentLoaded", function () {
+//   const sesionActiva = localStorage.getItem("sesionActiva");
+//   const [userName] = localStorage.getItem("userName").split(" ");
 
-  if (sesionActiva) {
-    // Si hay una sesión activa, muestra el mensaje en el navbar
-    const sesionActivaDiv = document.createElement("div");
-    sesionActivaDiv.className = "dropdown dropdown-sesion sesion-activa";
-    sesionActivaDiv.innerHTML =
-      ("beforeend",
-      `
-      <a class="btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-        Hola, ${userName}!
-      </a>
+// if (sesionActiva) {
+//   // Si hay una sesión activa, muestra el mensaje en el navbar
+//   const sesionActivaDiv = document.createElement("div");
+//   sesionActivaDiv.className = "dropdown dropdown-sesion sesion-activa";
+//   sesionActivaDiv.innerHTML =
+//     ("beforeend",
+//     `
+//     <a class="btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+//       Hola, ${userName}!
+//     </a>
 
-  <ul class="dropdown-menu" style="min-width:3rem">
-    <li><button class="dropdown-item" href="#" id="btn-sesion">Cerrar sesión</button></li>
-  </ul>
-    `);
+// <ul class="dropdown-menu" style="min-width:3rem">
+//   <li><button class="dropdown-item" href="#" id="btn-sesion">Cerrar sesión</button></li>
+// </ul>
+//   `);
 
-    navbar.appendChild(sesionActivaDiv);
+//   navbar.appendChild(sesionActivaDiv);
 
-    const iconoLogin = document.getElementById("user-icon");
-    iconoLogin.style.display = "none";
-    const cerrarSesionBtn = document.getElementById("btn-sesion");
+// const iconoLogin = document.getElementById("user-icon");
+// iconoLogin.style.display = "none";
+// const cerrarSesionBtn = document.getElementById("btn-sesion");
 
-    cerrarSesionBtn.addEventListener("click", function (e) {
-      e.preventDefault();
-      localStorage.removeItem("sesionActiva");
-      window.location.href = "./login.html";
-    });
-  }
-});
+// cerrarSesionBtn.addEventListener("click", function (e) {
+//   e.preventDefault();
+//   localStorage.removeItem("sesionActiva");
+//   window.location.href = "./login.html";
+// });
+// }
+// });

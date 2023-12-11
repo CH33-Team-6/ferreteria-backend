@@ -33,6 +33,8 @@ main {
 .icon-nav {
   margin-right: 1rem;
   font-size: 24px;
+  display: flex;
+  justify-content: center;
 }
 /* cerrar sesión */
 .sesion-activa {
@@ -171,27 +173,17 @@ main {
 }
 
 .carousel-item img {
-  max-width: 100%; 
-  height: auto; 
+  max-width: 100%;
+  height: auto;
 }
 
 @media (max-width: 768px) {
   .carousel-caption {
-    display: none; 
+    display: none;
   }
 }
 
 /* ... Otros estilos ... */
-
-
-
-
-
-
-
-
-
-
 
 .descuentos {
   margin-top: 4rem;
@@ -284,7 +276,7 @@ main {
   transform: scale(1.1); /* Zoom al pasar el ratón */
 }
 
-.product-card{
+.product-card {
   width: 18rem;
   height: 100%;
   padding: 1rem;
@@ -314,9 +306,9 @@ main {
 
 .card {
   width: 18rem;
-  display:flex;
+  display: flex;
   flex-direction: center;
-  height:80%;
+  height: 80%;
   padding: 1rem;
   margin-bottom: 12px;
   border-radius: 50px;
@@ -339,13 +331,12 @@ main {
   color: #c10f19;
 }
 
-.agr-btn{
-  display:flex;
+.agr-btn {
+  display: flex;
   justify-content: center;
-
 }
 
-a.btn2{
+a.btn2 {
   display: flex;
   justify-content: center;
   width: 200px;
@@ -359,7 +350,6 @@ a.btn2{
   color: #3135a0;
   text-decoration: none;
   font-size: 20px;
-
 }
 
 .card .btn {

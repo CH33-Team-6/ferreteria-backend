@@ -3,9 +3,10 @@ window.addEventListener("load", async function (event) {
 
   async function getData() {
     try {
-      const response = await fetch("https://preciojusto.onrender.com/api/productos/");
+      const response = await fetch(
+        "https://preciojusto.onrender.com/api/productos/"
+      );
       const result = await response.json();
-      console.log(result);
       return result;
     } catch (error) {
       console.log("error", error);
