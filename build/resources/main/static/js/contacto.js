@@ -35,16 +35,18 @@ function numerosConsecutivos() {
 }
 
 inputNumber.addEventListener('input', function (e) {
+	e.preventDefault();
   let valor = inputNumber.value;
   valor = valor.replace(/[^0-9]/g, '');
   inputNumber.value = valor;
 }); // permitir solamente numeros en el campo número.
 
 btnEnviar.addEventListener('click', function (event) {
+  event.preventDefault();
+  
   let isValid = true;
 
   const isInputNumber = isNumber(inputNumber.value);
-  event.preventDefault();
 
   inputNombre.style.border = '';
   inputAsunto.style.border = '';

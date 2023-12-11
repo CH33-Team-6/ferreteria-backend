@@ -52,41 +52,40 @@ btnRegistrarElement.addEventListener("click", function (event) {
     isValid = false;
   }
   if (errores.length > 0) {
-    alertElement.style.display = "block";
+    alertElement.style.display = "none";
     alertValidaciones.innerHTML = ""; // Limpiar mensajes anteriores
 
     for (let error of errores) {
       alertValidaciones.insertAdjacentHTML("beforeend", `<div>${error}</div>`);
     }
-  } else {
-    const body = {
-      nombre: nombreElement.value,
-      telefono: telefonoElement.value,
-      email: emailElement.value,
-      password: conContraseñaElement.value,
-    };
-    if (isValid) {
-      fetch("https://preciojusto.onrender.com/api/usuarios/", {
-        method: "POST",
-        body: JSON.stringify(body),
+  }
+  const body = {
+    nombre: nombreElement.value,
+    telefono: telefonoElement.value,
+    email: emailElement.value,
+    password: conContraseñaElement.value,
+  };
+  if (isValid) {
+    fetch("https://preciojusto.onrender.com/api/usuarios/", {
+      method: "POST",
+      body: JSON.stringify(body),
+    })
+      .then((response) => response.json())
+      .then((result) => {
+        console.log(result);
+        document.getElementById("alerta-enviado").style.display = "block";
+        setTimeout(function () {
+          document.getElementById("alerta-enviado").style.display = "none";
+          window.location.href = "./login.html";
+        }, 2000);
+        nombreElement.value = "";
+        telefonoElement.value = "";
+        emailElement.value = "";
+        conContraseñaElement.value = "";
+        contraseñaElement.value = "";
       })
-        .then((response) => response.json())
-        .then((result) => {
-          console.log(result);
-          document.getElementById("alerta-enviado").style.display = "block";
-          setTimeout(function () {
-            document.getElementById("alerta-enviado").style.display = "none";
-            window.location.href = "./login.html";
-          }, 5000);
-        })
-        .catch((error) => console.log("error", error));
-      // usuarios.push(elemento);
-      // localStorage.setItem("usuarios", JSON.stringify(usuarios));
-    }
-    nombreElement.value = "";
-    telefonoElement.value = "";
-    emailElement.value = "";
-    conContraseñaElement.value = "";
-    contraseñaElement.value = "";
+      .catch((error) => console.log("error", error));
+    // usuarios.push(elemento);
+    // localStorage.setItem("usuarios", JSON.stringify(usuarios));
   }
 }); //btnRegistrar.addEventListener
