@@ -75,7 +75,7 @@ btnRegistrarElement.addEventListener("click", function (event) {
     })
       .then((response) => response.json())
       .then((result) => {
-        console.log(result, body, JSON.stringify(body));
+        //console.log(result, body, JSON.stringify(body));
         document.getElementById("alerta-enviado").style.display = "block";
         setTimeout(function () {
           document.getElementById("alerta-enviado").style.display = "none";

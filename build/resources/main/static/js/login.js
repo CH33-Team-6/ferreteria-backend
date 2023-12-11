@@ -20,8 +20,8 @@ btnEnviar.addEventListener("click", function (event) {
   })
     .then((response) => response.json())
     .then((result) => {
-      console.log(result);
       sessionStorage.setItem("accessToken", result.accessToken);
+      sessionStorage.setItem("username", result.nombre)
       showAlert("success", `Bienvenido ${body.email}`);
 
       // Redirige después de mostrar la alerta
@@ -33,31 +33,7 @@ btnEnviar.addEventListener("click", function (event) {
       console.log("error", error);
       showAlert("danger", "Usuario y/o contraseña incorrectos");
     });
-  // const myHeaders = new Headers();
-  // myHeaders.append("Content-Type", "application/json");
 
-  // async function getData() {
-  //   let raw = JSON.stringify({
-  //     email: emailElement.value,
-  //     password: contraseñaElement.value,
-  //   });
-
-  //   try {
-  //     const response = await fetch("http://localhost:8080/api/login/", {
-  //       method: "POST",
-  //       headers: myHeaders,
-  //       body: raw,
-  //       redirect: "follow",
-  //     });
-  //     const result = await response.json();
-  //     console.log(result);
-  //     return result;
-  //   } catch (error) {
-  //     console.log("error", error);
-  //     throw error; // Re-lanzar el error para que se maneje en el ámbito externo si es necesario
-  // }
-  // }
-  // getData();
 });
 
 //   const validUser = result.find(
@@ -71,10 +47,10 @@ btnEnviar.addEventListener("click", function (event) {
 //     return;
 //   }
 
-//   showAlert("success", `Bienvenido ${validUser.nombre}`);
-//   localStorage.setItem("login_success", JSON.stringify(validUser));
-//   localStorage.setItem("sesionActiva", "true");
-//   localStorage.setItem("userName", validUser.nombre);
+//showAlert("success", `Bienvenido ${validUser.nombre}`);
+//localStorage.setItem("login_success", JSON.stringify(validUser));
+//localStorage.setItem("sesionActiva", "true");
+//localStorage.setItem("userName", validUser.nombre);
 
 //   // Redirige después de mostrar la alerta
 //   setTimeout(function () {

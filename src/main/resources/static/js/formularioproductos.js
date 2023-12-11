@@ -22,7 +22,7 @@ const alertValidaciones = document.getElementById("invalid");
 const inputNombre = document.getElementById("inputNombre");
 const inputCategoria = document.getElementById("inputCategoria");
 const inputId = document.getElementById("inputId");
-console.log("inputId", inputId.value);
+const inputAlertAgegrar = document.getElementById("productos-agregados")
 const inputDescripcion = document.getElementById("inputDescripcion");
 const inputPrecio = document.getElementById("inputPrecio");
 
@@ -72,6 +72,7 @@ btnAgregar.addEventListener("click", function (event) {
   //   datos = JSON.parse(localStorage.getItem("datos"));
   // }
   alertValidaciones.style.display = "none";
+  inputAlertAgegrar.style.display = "none";
   alertValidaciones.style.color = "";
   cargarImagen.style.border = "";
   inputNombre.style.border = "";
@@ -156,13 +157,6 @@ btnAgregar.addEventListener("click", function (event) {
           // Muestra la imagen subida
           img = data.data.url;
 
-          // const pahtml = `<p> Id: ${inputId.value} </p>
-          // <p> Nombre: ${inputNombre.value} </p>
-          // <p> Precio: ${inputPrecio.value} </p>
-          // <p> Categoria: ${inputCategoria.value} </p>
-          // <p> Descripción: ${inputDescripcion.value} </p>
-          // <p> Imágen: ${img} </p>`
-
           const body = {
             // id: inputId.value,
             nombre: inputNombre.value,
@@ -192,7 +186,7 @@ btnAgregar.addEventListener("click", function (event) {
             .then((response) => response.json())
             .then((result) => {
               console.log(result);
-              alert("Producto agregado con éxito");
+              inputAlertAgegrar.style.display = "block";
               // limpiar campos
               inputId.value = "";
               inputNombre.value = "";
@@ -215,7 +209,7 @@ btnAgregar.addEventListener("click", function (event) {
   }
 }); //addEventListener
 
-window.addEventListener("load", function (event) {
+//window.addEventListener("load", function (event) {
   // if (localStorage.getItem("datos") !== null){
   //   datos = JSON.parse(localStorage.getItem("datos"));
   //   datos.forEach((r) => {
@@ -232,4 +226,4 @@ window.addEventListener("load", function (event) {
   //   console.log("datos");
   //   localStorage.setItem("datos", JSON.stringify(PRODUCTOS));
   // } //datos=null
-}); //load event
+//}); //load event
